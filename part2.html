@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="myStyles.css">
+</head>
+
+<body>
+
+<h1> JS Matching Game </h1>
+<p> Click on the extra smiling face on the left.</p>
+
+<div id="rightSide"> test </div>
+<div id="leftSide"> </div>
+
+<script>
+    var numberOfFaces= 5;
+    var theLeftSide= document.getElementById("leftSide");
+
+    function generateFaces(){
+        for(var i=0; i < numberOfFaces; i++){
+            var img= document.createElement('img');
+            img.src="http://clipartix.com/wp-content/uploads/2016/04/Flowers-flower-clip-art-with-transparent-background-free.png";
+
+            img.width="50";
+            img.height="50";
+
+            img.style.top=Math.random() * 400 + "px";
+            img.style.left=Math.random() * 400 + "px";
+
+            theLeftSide.appendChild(img);
+        }
+    }
+
+    generateFaces();
+</script>
+</body>
+</html>
