@@ -15,33 +15,33 @@
 <div id="leftSide">   </div>
 
 <script>
+    var theBody= document.getElementsByTagName("body")[0];
     var numberOfFaces= 5;
     var theLeftSide= document.getElementById("leftSide");
     var theRightSide= document.getElementById('rightSide');
 
     function generateFaces(){
-
-//        var theLeftSide= document.getElementById("leftSide");
-//        var theRightSide= document.getElementById('rightSide');
-
         for(var i=0; i < numberOfFaces; i++){
             var img= document.createElement('img');
             img.src="http://clipartix.com/wp-content/uploads/2016/04/Flowers-flower-clip-art-with-transparent-background-free.png";
 
             img.width= "50";
             img.height="50";
-
             img.style.top=Math.random() * 400 + "px";
             img.style.left=Math.random() * 400 + "px";
-
-
-//           var cln = theRightSide.cloneNode(true);
-//            theLeftSide.appendChild(cln);
             theLeftSide.appendChild(img);
+
         }
-         var leftSideImages= theLeftSide.cloneNode(true);
-         leftSideImages.removeChild(leftSideImages.childNodes[leftSideImages.childNodes.length -1]);
-         theRightSide.appendChild(leftSideImages);
+        var leftSideImages= theLeftSide.cloneNode(true);
+        leftSideImages.removeChild(leftSideImages.childNodes[leftSideImages.childNodes.length -1]);
+        theRightSide.appendChild(leftSideImages);
+
+        theLeftSide.lastChild.onClick=
+                function nextLevel(event){
+                    event.stopPropagation();
+                    numberOfFaces += 5;
+                    generateFaces();
+                };
     }
 
     generateFaces();
